@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TisApp</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Загрузка музыки</h1>
+
+    <form action="/music_upload" method="post" enctype="multipart/form-data" name="musicUploadForm" onsubmit="return validateForm()">
+        <label for="musicName">Название</label> <br>
+        <input type="text" name="musicName"/> <br><br>
+
+        <label for="musicAuthor">Автор</label> <br>
+        <input type="text" name="musicAuthor"/> <br><br>
+
+        <input type="file" name="musicFile"/> <br><br>
+
+        <button type="submit">Загрузить</button>
+    </form>
+
+    <script>
+        // Валидация формы
+        function validateForm() {
+            var musicName = document.forms['musicUploadForm']['musicName'].value;
+            var musicAuthor = document.forms['musicUploadForm']['musicAuthor'].value;
+            var musicFile = document.forms['musicUploadForm']['musicFile'].value;
+        
+            if(musicName == '' || musicAuthor == '' || musicFile == '') {
+                alert('Форма заполнена не корректно');
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+    <script src="index.js"></script>
+</body>
+<html>
